@@ -20,7 +20,7 @@ public class PlayersContainer : MonoBehaviour
 
     private void InitPlayersList()
     {
-        Debug.Log("[PlayersContainer]-> CreatePlayersList");
+        //Debug.Log("[PlayersContainer]-> CreatePlayersList");
         playersList = new List<Player>(GetComponentsInChildren<Player>(true));
     }
 }
