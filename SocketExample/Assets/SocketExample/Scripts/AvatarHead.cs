@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class AvatarHead : MonoBehaviour
 {
+    public string type;
+
+    private void Awake()
+    {
+        type = gameObject.name;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

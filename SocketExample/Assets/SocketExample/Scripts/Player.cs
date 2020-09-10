@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
         {
             throw new Exception("Add AvatarHead GameObject for the player");
         }
+
+        //Debug.Log("type="+avatarHead.type);
     }
 
     // Update is called once per frame
