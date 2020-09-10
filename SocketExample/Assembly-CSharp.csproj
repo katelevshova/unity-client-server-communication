@@ -64,8 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\SocketExample\Scripts\AsyncSocketListener.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\AvatarHead.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\CmdClientUpdateAvatar.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\CmdUpdateAvatarRequest.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\CmdUpdateAvatarResponse.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\Command.cs" />
     <Compile Include="Assets\SocketExample\Scripts\ConnectorProxy.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\DataParser.cs" />
     <Compile Include="Assets\SocketExample\Scripts\GameController.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\Player.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\PlayersContainer.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\ProtocolList.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Projects/Unity/SocketExample/SocketExample/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
