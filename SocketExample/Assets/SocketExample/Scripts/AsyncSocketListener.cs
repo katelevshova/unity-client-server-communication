@@ -6,20 +6,6 @@ using System.Threading;
 using UnityEngine;
 
 // State object for reading client data asynchronously  
-public class ServerStateObject
-{
-    // Size of receive buffer.  
-    public const int BufferSize = 1024;
-
-    // Receive buffer.  
-    public byte[] buffer = new byte[BufferSize];
-
-    // Received data string.
-    public StringBuilder sb = new StringBuilder();
-
-    // Client socket.
-    public Socket workSocket = null;
-}
 
 public class AsyncSocketListener
 {
@@ -89,9 +75,9 @@ public class AsyncSocketListener
         Socket handler = listener.EndAccept(ar);
 
         // Create the state object.  
-        ServerStateObject state = new ServerStateObject();
+        ConnectorStateObject state = new ConnectorStateObject();
         state.workSocket = handler;
-        handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+        handler.BeginReceive(state.buffer, 0, ConnectorStateObject.BufferSize, 0,
             new AsyncCallback(ReadCallback), state);
     }
 
@@ -101,7 +87,7 @@ public class AsyncSocketListener
 
         // Retrieve the state object and the handler socket  
         // from the asynchronous state object.  
-        StateObject state = (StateObject)ar.AsyncState;
+        ConnectorStateObject state = (ConnectorStateObject)ar.AsyncState;
         Socket handler = state.workSocket;
 
         // Read data from the client socket.
@@ -127,7 +113,7 @@ public class AsyncSocketListener
             else
             {
                 // Not all data received. Get more.  
-                handler.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0,
+                handler.BeginReceive(state.buffer, 0, ConnectorStateObject.BufferSize, 0,
                 new AsyncCallback(ReadCallback), state);
             }
         }

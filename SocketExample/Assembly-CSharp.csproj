@@ -70,6 +70,7 @@
     <Compile Include="Assets\SocketExample\Scripts\CmdUpdateAvatarResponse.cs" />
     <Compile Include="Assets\SocketExample\Scripts\Command.cs" />
     <Compile Include="Assets\SocketExample\Scripts\ConnectorProxy.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\ConnectorStateObject.cs" />
     <Compile Include="Assets\SocketExample\Scripts\DataParser.cs" />
     <Compile Include="Assets\SocketExample\Scripts\GameController.cs" />
     <Compile Include="Assets\SocketExample\Scripts\Player.cs" />
