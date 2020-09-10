@@ -25,7 +25,7 @@ public class StateObject
  * from Microsoft official documentation
  * https://docs.microsoft.com/en-us/dotnet/framework/network-programming/asynchronous-client-socket-example
  */
-public class ConnectorProxy 
+public class ConnectorProxy
 {
     // The port number for the remote device.  
     private const int port = 11000;
@@ -41,50 +41,65 @@ public class ConnectorProxy
     // The response from the remote device.  
     private static string response = "";
 
-    private static void StartClient()
+    private Socket _client;
+
+    public ConnectorProxy()
+    {
+        Debug.Log("Constructor ConnectorProxy");
+        InitSocketConnection();
+    }
+
+
+    private void InitSocketConnection()
     {
         // Connect to a remote device.  
         try
         {
             // Establish the remote endpoint for the socket.  
-            // The name of the
-            // remote device is "host.contoso.com".  
-            IPHostEntry ipHostInfo = Dns.GetHostEntry("host.contoso.com");
+            IPHostEntry ipHostInfo = Dns.GetHostEntry("localhost");
             IPAddress ipAddress = ipHostInfo.AddressList[0];
             IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
 
             // Create a TCP/IP socket.  
-            Socket client = new Socket(ipAddress.AddressFamily,
+            _client = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
 
             // Connect to the remote endpoint.  
-            client.BeginConnect(remoteEP,
-                new AsyncCallback(ConnectCallback), client);
+            _client.BeginConnect(remoteEP,
+                new AsyncCallback(ConnectCallback), _client);
             connectDone.WaitOne();
 
             // Send test data to the remote device.  
-            Send(client, "This is a test<EOF>");
+            Send(_client, "This is a test<EOF>");
             sendDone.WaitOne();
 
             // Receive the response from the remote device.  
-            Receive(client);
+            Receive(_client);
             receiveDone.WaitOne();
 
             // Write the response to the console.  
-            Console.WriteLine("Response received : {0}", response);
+            Debug.Log("Response received : "+ response.ToString());
 
             // Release the socket.  
-            client.Shutdown(SocketShutdown.Both);
-            client.Close();
+            _client.Shutdown(SocketShutdown.Both);
+            _client.Close();
 
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 
-    private static void ConnectCallback(IAsyncResult ar)
+    private void CloseConnection()
+    {
+        // Release the socket.  
+        //_client.GetStream().Close();
+        _client.Shutdown(SocketShutdown.Both);
+        _client.Close();
+    }
+
+    private void ConnectCallback(IAsyncResult ar)
     {
         try
         {
@@ -94,19 +109,18 @@ public class ConnectorProxy
             // Complete the connection.  
             client.EndConnect(ar);
 
-            Console.WriteLine("Socket connected to {0}",
-                client.RemoteEndPoint.ToString());
+            Debug.Log("Socket connected to " + client.RemoteEndPoint.ToString());
 
             // Signal that the connection has been made.  
             connectDone.Set();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 
-    private static void Receive(Socket client)
+    private void Receive(Socket client)
     {
         try
         {
@@ -120,7 +134,7 @@ public class ConnectorProxy
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 
@@ -158,7 +172,7 @@ public class ConnectorProxy
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 
@@ -181,14 +195,14 @@ public class ConnectorProxy
 
             // Complete sending the data to the remote device.  
             int bytesSent = client.EndSend(ar);
-            Console.WriteLine("Sent {0} bytes to server.", bytesSent);
+            Debug.Log("Sent" + bytesSent.ToString() + " bytes to server.");
 
             // Signal that all bytes have been sent.  
             sendDone.Set();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 }
