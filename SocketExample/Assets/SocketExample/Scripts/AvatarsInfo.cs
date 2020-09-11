@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AvatarsInfo: MonoBehaviour 
 {
+    //Initialize them in Editor
     public GameObject AvatarCapsuleHead;
     public GameObject AvatarCubeHead;
     public GameObject AvatarRoundHead;

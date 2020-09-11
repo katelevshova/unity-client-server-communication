@@ -13,7 +13,7 @@ public class Command
         paramsDict = parameters;
     }
 
-    virtual public void Execute<TypeOfValue>(TypeOfValue value)
+    virtual public void Execute<T>(T value)
     {
     }
 

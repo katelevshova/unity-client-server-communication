@@ -31,6 +31,14 @@ public class PlayersContainer : MonoBehaviour
     {
         //Debug.Log("[Player]->SubscribeToEvents");
         CmdClientUpdateAvatar.OnUpdateAvatar += UpdateAvatar;
+        // Add more here
+    }
+
+    private void UnsubscribeFromEvents()
+    {
+        //Debug.Log("[Player]->UnsubscribeFromEvents");
+        CmdClientUpdateAvatar.OnUpdateAvatar -= UpdateAvatar;
+        // Remove more here
     }
 
     private void UpdateAvatar(int playerId)
@@ -62,6 +70,11 @@ public class PlayersContainer : MonoBehaviour
         }
 
         return avatarsInfo.GetAvatar(nextId);  
+    }
+
+    private void OnDisable()
+    {
+        UnsubscribeFromEvents();
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,18 @@ public class CmdClientUpdateAvatar: Command
     public delegate void ActionUpdateAvatar(int playerId);
     public static event ActionUpdateAvatar OnUpdateAvatar;
 
-    public override void Execute<TypeOfValue>(TypeOfValue value)
+    public override void Execute<T>(T value)
     {
         name = ProtocolList.PLAYER_UPDATE_AVATAR;
+
         // Update UI
         Player player = value as Player;
+
+        if (player == null)
+        {
+            throw new Exception("value must have Player type");
+        }
+
         Debug.Log("player= " + player.name);
         OnUpdateAvatar?.Invoke(player.id);
 
