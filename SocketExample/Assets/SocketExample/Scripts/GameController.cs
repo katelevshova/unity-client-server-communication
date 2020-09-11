@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameController: MonoBehaviour
 {
     public static GameController Instance;
-    ConnectorProxy _connectorProxy;
-    AsyncSocketListener _server;
+    public ConnectorProxy connectorProxy;
+    public AsyncSocketListener server;
 
     void Awake()
     {
@@ -42,7 +42,7 @@ public class GameController: MonoBehaviour
 
     private void StartSocketConnection()
     {
-        _server = new AsyncSocketListener();
-        _connectorProxy = new ConnectorProxy();
+        server = new AsyncSocketListener();
+        connectorProxy = new ConnectorProxy();
     }
 }

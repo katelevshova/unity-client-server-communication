@@ -57,11 +57,11 @@ public class ConnectorProxy
             connectDone.WaitOne();
 
             // Send test data to the remote device.  
-            Send(_client, "This is a test<EOF>");
+            Send("This is a test<EOF>");
             sendDone.WaitOne();
 
             // Receive the response from the remote device.  
-            Receive(_client);
+            Receive();
             receiveDone.WaitOne();
 
             // Write the response to the console.  
@@ -107,16 +107,16 @@ public class ConnectorProxy
         }
     }
 
-    private void Receive(Socket client)
+    public void Receive()
     {
         try
         {
             // Create the state object.  
             ConnectorStateObject state = new ConnectorStateObject();
-            state.workSocket = client;
+            state.workSocket = _client;
 
             // Begin receiving the data from the remote device.  
-            client.BeginReceive(state.buffer, 0, ConnectorStateObject.BufferSize, 0,
+            _client.BeginReceive(state.buffer, 0, ConnectorStateObject.BufferSize, 0,
                 new AsyncCallback(ReceiveCallback), state);
         }
         catch (Exception e)
@@ -163,14 +163,14 @@ public class ConnectorProxy
         }
     }
 
-    private static void Send(Socket client, String data)
+    public void Send(String data)
     {
         // Convert the string data to byte data using ASCII encoding.  
         byte[] byteData = Encoding.ASCII.GetBytes(data);
 
         // Begin sending the data to the remote device.  
-        client.BeginSend(byteData, 0, byteData.Length, 0,
-            new AsyncCallback(SendCallback), client);
+        _client.BeginSend(byteData, 0, byteData.Length, 0,
+            new AsyncCallback(SendCallback), _client);
     }
 
     private static void SendCallback(IAsyncResult ar)
