@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     protected AvatarHead avatarHead;
+    public int id = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,10 @@ public class Player : MonoBehaviour
             throw new Exception("Add AvatarHead GameObject for the player");
         }
 
+        int startIndex = gameObject.name.IndexOf("_") + 1;
+        id = Int32.Parse(gameObject.name.Substring(startIndex));
         //Debug.Log("type="+avatarHead.type);
+        //Debug.Log("id=" + id.ToString());
     }
 
     // Update is called once per frame

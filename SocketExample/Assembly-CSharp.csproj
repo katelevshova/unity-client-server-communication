@@ -74,6 +74,7 @@
     <Compile Include="Assets\SocketExample\Scripts\DataParser.cs" />
     <Compile Include="Assets\SocketExample\Scripts\EnumAvatarHead.cs" />
     <Compile Include="Assets\SocketExample\Scripts\GameController.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\MouseLocation.cs" />
     <Compile Include="Assets\SocketExample\Scripts\Player.cs" />
     <Compile Include="Assets\SocketExample\Scripts\PlayersContainer.cs" />
     <Compile Include="Assets\SocketExample\Scripts\ProtocolList.cs" />
