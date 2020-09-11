@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersList: []
+  avatarsInfo: {fileID: 2116973298}
 --- !u!1001 &735520792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +514,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8518158571763078646, guid: e79ebce98216513459730a8624fe721c,
+        type: 3}
+      propertyPath: AvatarRoundHead
+      value: 
+      objectReference: {fileID: 2901405514454977081, guid: 1d51702c8cd6dec459b665caf1340cca,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ebce98216513459730a8624fe721c, type: 3}
 --- !u!4 &896665332 stripped
@@ -788,6 +795,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8518158571763078646, guid: e79ebce98216513459730a8624fe721c,
+        type: 3}
+      propertyPath: AvatarRoundHead
+      value: 
+      objectReference: {fileID: 769622422945425354, guid: bea7ea7ab7ff164448b02ec0834352e4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ebce98216513459730a8624fe721c, type: 3}
 --- !u!4 &1673089827 stripped
@@ -863,6 +876,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8518158571763078646, guid: e79ebce98216513459730a8624fe721c,
+        type: 3}
+      propertyPath: AvatarRoundHead
+      value: 
+      objectReference: {fileID: 2901405514454977081, guid: 1d51702c8cd6dec459b665caf1340cca,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79ebce98216513459730a8624fe721c, type: 3}
 --- !u!4 &2031821244 stripped
@@ -871,3 +890,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2031821243}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2116973297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116973299}
+  - component: {fileID: 2116973298}
+  m_Layer: 0
+  m_Name: AvatarsInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2116973298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116973297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1d4f22ddfd3d4408d20fe1676d1821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AvatarCapsuleHead: {fileID: 826089223569479855, guid: 3834e5ca0d345c544a82368a367614ee,
+    type: 3}
+  AvatarCubeHead: {fileID: 769622422945425354, guid: bea7ea7ab7ff164448b02ec0834352e4,
+    type: 3}
+  AvatarRoundHead: {fileID: 2901405514454977081, guid: 1d51702c8cd6dec459b665caf1340cca,
+    type: 3}
+  _avatarsList: []
+--- !u!4 &2116973299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116973297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

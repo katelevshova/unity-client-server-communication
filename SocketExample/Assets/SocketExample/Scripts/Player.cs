@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    protected AvatarHead avatarHead;
+    public AvatarHead avatarHead;
+
     public int id = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         avatarHead = GetComponentInChildren<AvatarHead>();
 
         if(avatarHead == null)
@@ -33,10 +34,15 @@ public class Player : MonoBehaviour
         
     }
 
-    public void ReplaceAvatarWithNext()
+    public void ReplaceAvatarWithNext(GameObject nextAvatar)
     {
+       // Debug.Log("->ReplaceAvatarWithNext, nextAvatar="+ nextAvatar.name);
+        GameObject go = Instantiate(nextAvatar, avatarHead.transform.position, avatarHead.transform.rotation) as GameObject;
+        go.transform.parent = this.transform;
         Destroy(avatarHead.gameObject);
+        avatarHead = go.GetComponent<AvatarHead>();
+        avatarHead.type = (EnumAvatarHead)Enum.Parse(typeof(EnumAvatarHead), nextAvatar.name);
+        Debug.Log("->ReplaceAvatarWithNext, updated avatarHead=" + avatarHead.name);
+        Debug.Log("avatarHead.type=" + avatarHead.type);
     }
-
-    
 }

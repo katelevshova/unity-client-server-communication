@@ -19,13 +19,15 @@ public class MouseLocation : MonoBehaviour
 
                 if(avatarHead != null)
                 {
+                    Debug.Log("MouseLocation, clicked!");
+
                     CmdClientUpdateAvatar cmd = new CmdClientUpdateAvatar();
                     cmd.name = cmd.ToString();
                     Dictionary<string, object> paramsDict = new Dictionary<string, object>();
 
                     int playerId = avatarHead.GetComponentInParent<Player>().id;
                     paramsDict.Add("PlayerId", playerId);
-                    paramsDict.Add("AvatarHeadType", avatarHead.GetTypeId(avatarHead.type.ToString()));
+                    //paramsDict.Add("AvatarHeadType", avatarHead.GetTypeId(avatarHead.type.ToString()));
 
                     cmd.Execute(paramsDict);
                 }

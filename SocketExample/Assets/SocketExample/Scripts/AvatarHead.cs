@@ -27,4 +27,9 @@ public class AvatarHead : MonoBehaviour
     {
         return (int)Enum.Parse(typeof(EnumAvatarHead), _type);
     }
+
+    public int GetTypeId()
+    {
+        return (int)Enum.Parse(typeof(EnumAvatarHead), type.ToString());
+    }
 }

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\SocketExample\Scripts\AsyncSocketListener.cs" />
     <Compile Include="Assets\SocketExample\Scripts\AvatarHead.cs" />
+    <Compile Include="Assets\SocketExample\Scripts\AvatarsInfo.cs" />
     <Compile Include="Assets\SocketExample\Scripts\CmdClientUpdateAvatar.cs" />
     <Compile Include="Assets\SocketExample\Scripts\CmdUpdateAvatarRequest.cs" />
     <Compile Include="Assets\SocketExample\Scripts\CmdUpdateAvatarResponse.cs" />
