@@ -22,13 +22,7 @@ public class MouseLocation : MonoBehaviour
                     Debug.Log("MouseLocation, clicked!");
 
                     CmdClientUpdateAvatar cmd = new CmdClientUpdateAvatar();
-                    cmd.name = cmd.ToString();
-                    Dictionary<string, object> paramsDict = new Dictionary<string, object>();
-
-                    int playerId = avatarHead.GetComponentInParent<Player>().id;
-                    paramsDict.Add("PlayerId", playerId);
-
-                    cmd.Execute(paramsDict);
+                    cmd.Execute<Player>(avatarHead.GetComponentInParent<Player>());
                 }
             }
         }

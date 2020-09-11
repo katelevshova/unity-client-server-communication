@@ -5,13 +5,16 @@ using UnityEngine;
 public class Command
 {
     public string name;
-    public Dictionary<string, object> paramsDict;
+    public Dictionary<string, object> paramsDict = new Dictionary<string, object>();
     private string end_of_msg = "|";
 
     virtual public void Execute(Dictionary<string, object> parameters)
     {
         paramsDict = parameters;
-        //PrintParameters();
+    }
+
+    virtual public void Execute<TypeOfValue>(TypeOfValue value)
+    {
     }
 
 
@@ -38,8 +41,4 @@ public class Command
         return message + end_of_msg;
     }
 
-   /*public void Display<TypeOfValue>(string msg, TypeOfValue value)
-    {
-        Debug.Log(string.Format("{0}:{1}", msg, value));
-    }*/
 }

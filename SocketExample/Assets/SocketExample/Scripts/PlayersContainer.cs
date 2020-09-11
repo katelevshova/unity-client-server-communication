@@ -38,12 +38,8 @@ public class PlayersContainer : MonoBehaviour
         Debug.Log("[Player]->UpdateAvatar: playerId="+ playerId);
         Player player = GetPlayerById(playerId);
 
-        //Debug.Log("current GetTypeId=" + player.avatarHead.GetTypeId());
-
-        GameObject nextAvatar = GetNextAvatar(player);//(player.avatarHead.type.ToString());
+        GameObject nextAvatar = GetNextAvatar(player);
         player.ReplaceAvatarWithNext(nextAvatar);
-
-      
     }
 
     public Player GetPlayerById(int id)
@@ -65,21 +61,7 @@ public class PlayersContainer : MonoBehaviour
              nextId = 0;
         }
 
-        InitSendToServerCmd(player.id, nextId);
-
         return avatarsInfo.GetAvatar(nextId);  
-    }
-
-    private void InitSendToServerCmd(int playerId, int avatarHeadId)
-    {
-        CmdUpdateAvatarRequest cmdSend = new CmdUpdateAvatarRequest();
-        cmdSend.name = ProtocolList.PLAYER_UPDATE_AVATAR;
-        Dictionary<string, object> paramsDict = new Dictionary<string, object>();
-        paramsDict.Add("PlayerId", playerId);
-        paramsDict.Add("AvatarHeadTypeId", avatarHeadId);
-
-        cmdSend.Execute(paramsDict);
-        //cmdSend.Display<Dictionary<string, object>>("Dictionary", paramsDict);
     }
 }
 

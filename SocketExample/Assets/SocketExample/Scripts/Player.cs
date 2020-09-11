@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
         id = Int32.Parse(gameObject.name.Substring(startIndex));
         //Debug.Log("type="+avatarHead.type);
         //Debug.Log("id=" + id.ToString());
-
-        
     }
 
     // Update is called once per frame

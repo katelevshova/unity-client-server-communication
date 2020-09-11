@@ -16,10 +16,6 @@ public class AvatarsInfo: MonoBehaviour
         _avatarsList.Add(AvatarCapsuleHead);
         _avatarsList.Add(AvatarCubeHead);
         _avatarsList.Add(AvatarRoundHead);
-
-        //GetAvatar(0);
-        //GetAvatar(1);
-        //GetAvatar(2);
     }
 
     public List<GameObject> GetAvatarsList()
