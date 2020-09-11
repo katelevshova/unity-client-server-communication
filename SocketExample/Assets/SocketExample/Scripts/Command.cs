@@ -14,6 +14,7 @@ public class Command
         //PrintParameters();
     }
 
+
     protected void PrintParameters()
     {
         Debug.Log("-----------------------------");
@@ -36,4 +37,9 @@ public class Command
 
         return message + end_of_msg;
     }
+
+   /*public void Display<TypeOfValue>(string msg, TypeOfValue value)
+    {
+        Debug.Log(string.Format("{0}:{1}", msg, value));
+    }*/
 }

@@ -27,7 +27,6 @@ public class MouseLocation : MonoBehaviour
 
                     int playerId = avatarHead.GetComponentInParent<Player>().id;
                     paramsDict.Add("PlayerId", playerId);
-                    //paramsDict.Add("AvatarHeadType", avatarHead.GetTypeId(avatarHead.type.ToString()));
 
                     cmd.Execute(paramsDict);
                 }

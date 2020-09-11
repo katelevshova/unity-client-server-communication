@@ -10,12 +10,10 @@ public class CmdClientUpdateAvatar: Command
     public override void Execute(Dictionary<string, object> parameters)
     {
         base.Execute(parameters);
-        //Update UI
-        OnUpdateAvatar?.Invoke((int)parameters["PlayerId"]);
+        //PrintParameters();
 
-        //Send message to the server
-        string message = BuildMessageToServer();
-        Debug.Log("message= " + message);
-        //GameController.Instance.connectorProxy.Send(message);
+        // Update UI
+        OnUpdateAvatar?.Invoke((int)parameters["PlayerId"]);
+        // Do here something additional using other parameters
     }
 }

@@ -29,13 +29,13 @@ public class AvatarsInfo: MonoBehaviour
 
     public GameObject GetAvatar(int id)
     {
-        Debug.Log("->GetAvatar: " + _avatarsList[id]);
+        //Debug.Log("->GetAvatar: " + _avatarsList[id]);
         return _avatarsList[id];
     }
 
     public int GetSize()
     {
-        Debug.Log("->GetSize: " + _avatarsList.Count);
+        //Debug.Log("->GetSize: " + _avatarsList.Count);
         return _avatarsList.Count;
     }
 }

@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         Destroy(avatarHead.gameObject);
         avatarHead = go.GetComponent<AvatarHead>();
         avatarHead.type = (EnumAvatarHead)Enum.Parse(typeof(EnumAvatarHead), nextAvatar.name);
-        Debug.Log("->ReplaceAvatarWithNext, updated avatarHead=" + avatarHead.name);
-        Debug.Log("avatarHead.type=" + avatarHead.type);
+        //Debug.Log("->ReplaceAvatarWithNext, updated avatarHead=" + avatarHead.name);
+        //Debug.Log("avatarHead.type=" + avatarHead.type);
     }
 }
