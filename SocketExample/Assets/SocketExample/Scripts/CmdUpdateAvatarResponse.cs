@@ -10,6 +10,7 @@ public class CmdUpdateAvatarResponse : Command
 
     public override void Execute<T>(T value)
     {
+        //TODO: aupdate it only if PlayerId != currentPlayerId
         OnUpdateAvatar?.Invoke((int)paramsDict["PlayerId"]);
     }
 }
