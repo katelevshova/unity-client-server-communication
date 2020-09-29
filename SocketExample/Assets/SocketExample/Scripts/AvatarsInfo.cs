@@ -8,6 +8,7 @@ public class AvatarsInfo: MonoBehaviour
     public GameObject AvatarCapsuleHead;
     public GameObject AvatarCubeHead;
     public GameObject AvatarRoundHead;
+    //TODO: use AssetBundles to load the avatar heads by URL
 
     public List<GameObject> _avatarsList = new List<GameObject>();
 

@@ -6,7 +6,7 @@ using System.Threading;
 using UnityEngine;
 
 // State object for reading client data asynchronously  
-
+//TODO: modify this class to use a DataParser when the data arrives from the server side
 public class AsyncSocketListener
 {
     private const int port = 11000;
