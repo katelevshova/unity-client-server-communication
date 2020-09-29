@@ -23,7 +23,7 @@ In this case the client needs to process the response message.
 
 <div align="center">
       <a href="https://www.youtube.com/embed/orySY8czMbc">
-     <img src="https://user-images.githubusercontent.com/11220246/94610306-f1abab00-0254-11eb-8d87-0964195ebce5.png" 
+      <img src="https://user-images.githubusercontent.com/11220246/94611468-9d092f80-0256-11eb-93ab-ed14ff73c33f.png" 
       alt="Demo video" 
       style="width:100%;">
       </a>
