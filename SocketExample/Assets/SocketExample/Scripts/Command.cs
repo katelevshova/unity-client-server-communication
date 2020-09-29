@@ -6,7 +6,9 @@ public class Command
 {
     public string name;
     public Dictionary<string, object> paramsDict = new Dictionary<string, object>();
-    private string end_of_msg = "|";
+
+    public static readonly string HEADER = "$";
+    public static readonly string FOOTER = "*";
 
     virtual public void Execute(Dictionary<string, object> parameters)
     {
@@ -38,7 +40,7 @@ public class Command
             message += kvp.Key + ":" + kvp.Value + ",";
         }
 
-        return message + end_of_msg;
+        return message + FOOTER;
     }
 
 }
